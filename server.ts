@@ -13,7 +13,7 @@ enableProdMode();
 // Express server
 const app = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -49,5 +49,10 @@ app.get('*', (req, res) => {
 
 // Start up the Node server
 app.listen(PORT, () => {
-  console.log(`Node server listening on http://localhost:${PORT}`);
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`Node server listening on http://localhost:${PORT}`);
+  } else {
+
+    console.log(`App is listening on port ' + ':${PORT}`);
+  }
 });

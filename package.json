@@ -4,11 +4,13 @@
   "private": true,
   "description": "Base setup for Rendering Angular Applications Server Side",
   "scripts": {
+    "heroku-postbuild": "npm run build:ssr:prod",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
+    "build:ssr:prod": "npm run build:client-and-server-bundles",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod && ng run ngx-ssr-starter:server",
