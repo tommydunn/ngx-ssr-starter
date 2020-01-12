@@ -49,10 +49,5 @@ app.get('*', (req, res) => {
 
 // Start up the Node server
 app.listen(PORT, () => {
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`Node server listening on http://localhost:${PORT}`);
-  } else {
-
-    console.log(`App is listening on port ' + ':${PORT}`);
-  }
+  console.log(`App is listening on port:${PORT}`);
 });
